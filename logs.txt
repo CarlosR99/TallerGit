@@ -1,0 +1,43 @@
+git init tallerGit
+git config --global user.name CarlosR99
+git config --global user.email jose.carlos.silva@correounivalle.edu.co
+cd TallerGit
+git checkout -b master
+echo "# Mi Proyecto" > README.md
+git add README.md
+git commit -m "Commit inicial en master"
+git checkout -b feature
+git branch
+echo "Texto inicial" > archivo.txt
+git add archivo.txt
+git commit -m "Commit inicial"
+echo "Texto agregado en feature" >> archivo.txt
+git commit -am "Segundo commit en feature"
+echo "Tercer texto agregado en feature" >> archivo.txt
+git commit -am "Tercer commit en feature"
+git checkout master
+git merge feature
+git reset --hard Head~1
+git rebase feature
+git checkout -b hotfix
+echo "Corrección urgente" >> archivo.txt
+git commit -am "Hotfix"
+git checkout master
+git cherry-pick hotfix
+git reflog
+git checkout ca232c3
+git checkout feature
+echo "Cambio en feature" > conflicto.txt
+git commit -am "Cambio en feature"
+git add conflicto.txt
+git commit -am "Cambio en feature"
+git checkout master
+echo "Cambio en master" > conflicto.txt
+git add conflicto.txt
+git commit -am "Cambio en master"
+git merge feature
+git status
+nano conflicto.txt
+git add conflicto.txt
+git commit -m "Resuelto conflicto en conflicto.txt durante fusión de feature a master"
+git status
